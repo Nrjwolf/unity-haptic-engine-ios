@@ -4,7 +4,7 @@
 
 Copypaste ```Plugins/HapticEngine``` folder
 
-You can check ```HapticEngineExample.scene``` on **IOS 10+**
+You can check ```HapticEngineExample.scene``` on **IOS 10+** iPhone 6s minimum
 
 ``` c#
 using UnityEngine;
