@@ -1,10 +1,11 @@
-﻿#if UNITY_IOS 
+#if UNITY_IOS 
 using System.Runtime.InteropServices;
+using UnityEngine;
 #endif
 
 public static class HapticEngine
 {
-    #if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR
     [DllImport ( "__Internal" )] private static extern void _IOSNotificationFeedbackError ();
     [DllImport ( "__Internal" )] private static extern void _IOSNotificationFeedbackSuccess ();
     [DllImport ( "__Internal" )] private static extern void _IOSNotificationFeedbackWarning ();
@@ -23,5 +24,42 @@ public static class HapticEngine
     public static void ImpactFeedbackSoft () => _IOSImpactFeedbackSoft ();
     public static void ImpactFeedbackRigid () => _IOSImpactFeedbackRigid ();
     public static void SelectionFeedback () => _IOSSelectionFeedback ();
-    #endif
+#endif
+#if UNITY_IOS && UNITY_EDITOR
+    public static void NotificationFeedbackError() {
+        Debug.Log("Played Error Feedback.");
+    }
+    public static void NotificationFeedbackSuccess()
+    {
+        Debug.Log("Played Success Feedback.");
+    }
+    public static void NotificationFeedbackWarning()
+    {
+        Debug.Log("Played Warning Feedback.");
+    }
+    public static void ImpactFeedbackLight()
+    {
+        Debug.Log("Played Light Feedback.");
+    }
+    public static void ImpactFeedbackMedium()
+    {
+        Debug.Log("Played Medium Feedback.");
+    }
+    public static void ImpactFeedbackHeavy()
+    {
+        Debug.Log("Played Heavy Feedback.");
+    }
+    public static void ImpactFeedbackSoft()
+    {
+        Debug.Log("Played Soft Feedback.");
+    }
+    public static void ImpactFeedbackRigid()
+    {
+        Debug.Log("Played Rigid Feedback.");
+    }
+    public static void SelectionFeedback()
+    {
+        Debug.Log("Played Selection Feedback.");
+    }
+#endif
 }
